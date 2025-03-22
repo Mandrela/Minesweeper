@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class bomb : MonoBehaviour
 {
+    public const int array_length = 2;
+    public int[] array = new int[array_length];
+
     System.Random random = new System.Random();
 
     // Start is called before the first frame update
