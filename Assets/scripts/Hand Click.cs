@@ -13,6 +13,7 @@ public class HandClick : MonoBehaviour
 
     void Update()
     {
-        animator.SetBool("IsClick", Input.GetMouseButton(0));
+        animator.SetBool("IsClickL", Input.GetMouseButton(0));
+        animator.SetBool("IsClickR", Input.GetMouseButton(1));
     }
 }
