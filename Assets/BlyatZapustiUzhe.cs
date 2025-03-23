@@ -33,8 +33,5 @@ public class BlyatZapustiUzhe : StateMachineBehaviour
     //{
     //    // Implement code that sets up animation IK (inverse kinematics)
     //}
-    public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        animator.SetBool("end", true);
-    }
+ 
 }

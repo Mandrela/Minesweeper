@@ -15,12 +15,20 @@ public class StartGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        animator.SetBool("start", Input.GetMouseButton(0));
-
+        if(Input.GetMouseButton(0))
+        {
+            animator.SetBool("start", true);
+            Invoke("StartDelay", 3);
+        }
 
         if (animator.GetBool("end"))
         {
             SceneManager.LoadScene(1);
         }
+    }
+
+    void StartDelay()
+    {
+        animator.SetBool("end", true);
     }
 }
