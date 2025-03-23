@@ -8,16 +8,14 @@ public class bomb : MonoBehaviour
     public GameObject[] modules = new GameObject[modulesAmount];
     public Vector2[] modulesPositions = new Vector2[modulesAmount];
 
-    System.Random random = new System.Random();
-
     // Start is called before the first frame update
     void Start()
     {
-        Transform child = this.transform.GetChild(random.Next(3)).gameObject.transform;
+        Transform child = this.transform.GetChild(Utils.Next(3)).gameObject.transform;
         child.GetChild(0).GetComponent<Renderer>().enabled = true;
         child.GetChild(1).GetComponent<Renderer>().enabled = true;
 
-        int[] indexes = GenerateSequence(modulesAmount);
+        int[] indexes = Utils.GenerateSequence(modulesAmount);
         for (int i = 0; i < modulesAmount; i++) {
             Instantiate(modules[indexes[i]], modulesPositions[i], Quaternion.identity);
         }
@@ -29,23 +27,5 @@ public class bomb : MonoBehaviour
     void Update()
     {
         
-    }
-
-    int[] GenerateSequence(int length) {
-        int[] array = new int[length];
-        for (int i = 0; i < length; i++) {
-            bool flag = true;
-            while (flag) {
-                array[i] = random.Next(length);
-                flag = false;
-                for (int j = 0; j < i; j++) {
-                    if (array[j] == array[i]) {
-                        flag = true;
-                        break;
-                    }
-                }
-            }
-        }
-        return array;
     }
 }
