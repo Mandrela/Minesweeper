@@ -347,6 +347,7 @@ GameObject:
   - component: {fileID: 5750926042164313124}
   - component: {fileID: 8296036905168623944}
   - component: {fileID: 5014272532736334032}
+  - component: {fileID: 7734364599734759788}
   m_Layer: 0
   m_Name: Bomb
   m_TagString: Untagged
@@ -450,6 +451,34 @@ MonoBehaviour:
   - {x: 0.1, y: -2.5}
   - {x: 3.3, y: -0.2}
   - {x: 3.3, y: -2.4}
+--- !u!114 &7734364599734759788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4053823668085145103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 130ad4afb20152afd9347cabe06b32cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: d13ebb701c8d7972b9025b57b87a4c50, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5014272532736334032}
+        m_TargetAssemblyTypeName: bomb, Assembly-CSharp
+        m_MethodName: Explode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4065181230810375062
 GameObject:
   m_ObjectHideFlags: 0

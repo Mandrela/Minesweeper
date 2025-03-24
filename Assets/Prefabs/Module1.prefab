@@ -564,6 +564,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 138d0aeb4217caabfa08f72b789ff6e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ModuleSolvedEvent: {fileID: 11400000, guid: 0b8619596fa6a85df83f6692071b583d, type: 2}
+  ModuleLostEvent: {fileID: 11400000, guid: d13ebb701c8d7972b9025b57b87a4c50, type: 2}
+  ModuleCreatedEvent: {fileID: 11400000, guid: 39308ae3236af5a93a7bcdc2815c6d21, type: 2}
+  ModuleAskedEvent: {fileID: 11400000, guid: 1308dfa39f90b4f74b4b87f1ab24d509, type: 2}
   wireR: {fileID: 2443262897438386759}
   wireG: {fileID: 7034295737958419560}
   wireB: {fileID: 4268190565846067612}
@@ -589,7 +593,7 @@ BoxCollider2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_LayerOverridePriority: 1
+  m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
     m_Bits: 4294967295

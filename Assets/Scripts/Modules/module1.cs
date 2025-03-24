@@ -5,6 +5,12 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class module1 : MonoBehaviour
 {
+    [Header("Events")]
+    [SerializeField] GameEvent ModuleSolvedEvent;
+    [SerializeField] GameEvent ModuleLostEvent;
+    [SerializeField] GameEvent ModuleCreatedEvent;
+    [SerializeField] GameEvent ModuleAskedEvent;
+
     [Header("Wiring")]
     public GameObject wireR;
     public GameObject wireG;
@@ -20,7 +26,7 @@ public class module1 : MonoBehaviour
     public float Alpha = 1f;
     Color NormalColor;
     Renderer rend;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -41,19 +47,22 @@ public class module1 : MonoBehaviour
         this.NormalColor = this.rend.material.color;
 
         Debug.Log("Created wire module " + this.gameObject.name + " with correct answer " + this.correctAnswer + " and wrong answer " + this.incorrectAnswer);
+        this.ModuleCreatedEvent.Raise();
     }
 
     public void CheckSolution(Transform trans) {    // Boom output
-        if (this.wires[indexes[correctAnswer]] == trans) {
-
+        if (this.wires[this.indexes[this.correctAnswer]] == trans) {
+            this.ModuleSolvedEvent.Raise();
         } else {
-
+            this.ModuleLostEvent.Raise();
         }
     }
 
     void OnMouseOver() {
-        if (Input.GetMouseButtonDown(1))
-            Debug.Log("FUCK"); // Request output
+        if (Input.GetMouseButtonDown(1)) {
+            this.ModuleAskedEvent.Raise();
+            Debug.Log("FUCK");
+        }
     }
 
     // Highlight

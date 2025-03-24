@@ -526,20 +526,26 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5430276463434844151, guid: f88bd1e08ed32ff95a94c22665c1c649, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1065580037}
+      insertIndex: 3
+      addedObject: {fileID: 1065580041}
   m_SourcePrefab: {fileID: 100100000, guid: f88bd1e08ed32ff95a94c22665c1c649, type: 3}
 --- !u!1 &1065580031 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5430276463434844151, guid: f88bd1e08ed32ff95a94c22665c1c649, type: 3}
   m_PrefabInstance: {fileID: 704800557}
   m_PrefabAsset: {fileID: 0}
---- !u!212 &1065580034 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 5374973843663619020, guid: f88bd1e08ed32ff95a94c22665c1c649, type: 3}
+--- !u!114 &1065580039 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6122891981731113629, guid: f88bd1e08ed32ff95a94c22665c1c649, type: 3}
   m_PrefabInstance: {fileID: 704800557}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1065580037
+  m_GameObject: {fileID: 1065580031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 138d0aeb4217caabfa08f72b789ff6e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1065580041
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -551,14 +557,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 130ad4afb20152afd9347cabe06b32cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 2e075a97d8dae09c6a5f49f6f82af51c, type: 2}
+  Event: {fileID: 11400000, guid: 1308dfa39f90b4f74b4b87f1ab24d509, type: 2}
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1065580034}
-        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
+      - m_Target: {fileID: 1065580039}
+        m_TargetAssemblyTypeName: UnityEngine.Component, UnityEngine
+        m_MethodName: SendMessage
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

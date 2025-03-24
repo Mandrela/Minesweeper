@@ -28,4 +28,8 @@ public class bomb : MonoBehaviour
     {
         
     }
+
+    public void Explode() {
+        Debug.Log("Bomb made boom!");
+    }
 }
