@@ -18,17 +18,7 @@ public class StartGame : MonoBehaviour
         if(Input.GetMouseButton(0))
         {
             animator.SetBool("start", true);
-            Invoke("StartDelay", 3);
+            animator.SetBool("end", true);
         }
-
-        if (animator.GetBool("end"))
-        {
-            SceneManager.LoadScene(1);
-        }
-    }
-
-    void StartDelay()
-    {
-        animator.SetBool("end", true);
     }
 }
