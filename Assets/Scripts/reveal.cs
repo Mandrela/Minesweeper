@@ -10,13 +10,19 @@ public class reveal : MonoBehaviour
     public GameObject Hand;
     public GameObject TargetHID;
     public GameObject TargetREV;
+    GuideManager script;
 
+    void Start() {
+        script = GetComponent<GuideManager>();
+    }
 
     void Update()
     {
         if(Input.GetMouseButtonDown(1))
         {
             IsRevealed = !IsRevealed;
+            if (IsRevealed)
+                script.UpdatePagesList();
         }
 
         if(IsRevealed)

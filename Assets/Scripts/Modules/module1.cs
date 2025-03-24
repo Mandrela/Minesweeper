@@ -8,14 +8,15 @@ public class module1 : MonoBehaviour
     [Header("Events")]
     [SerializeField] GameEvent ModuleSolvedEvent;
     [SerializeField] GameEvent ModuleLostEvent;
-    [SerializeField] GameEvent ModuleCreatedEvent;
     [SerializeField] GameEvent ModuleAskedEvent;
+    [SerializeField] StringSet Guidelines;
+    string guideline = "lol";
 
     [Header("Wiring")]
     public GameObject wireR;
     public GameObject wireG;
     public GameObject wireB;
-    public Vector2[] relativePositions;
+    public Vector3[] relativePositions;
     Transform[] wires;
     int[] indexes;
     int correctAnswer;
@@ -26,7 +27,7 @@ public class module1 : MonoBehaviour
     public float Alpha = 1f;
     Color NormalColor;
     Renderer rend;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,8 +47,9 @@ public class module1 : MonoBehaviour
         this.HighlightColor.a = this.Alpha;
         this.NormalColor = this.rend.material.color;
 
+
+
         Debug.Log("Created wire module " + this.gameObject.name + " with correct answer " + this.correctAnswer + " and wrong answer " + this.incorrectAnswer);
-        this.ModuleCreatedEvent.Raise();
     }
 
     public void CheckSolution(Transform trans) {    // Boom output
@@ -63,6 +65,15 @@ public class module1 : MonoBehaviour
             this.ModuleAskedEvent.Raise();
             Debug.Log("FUCK");
         }
+    }
+
+    //Guidelines
+    void OnEnable() {
+        this.Guidelines.AddNonUnique(this.guideline);
+    }
+
+    void OnDisable() {
+        this.Guidelines.Remove(this.guideline);
     }
 
     // Highlight

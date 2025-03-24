@@ -112,7 +112,7 @@ Transform:
   m_GameObject: {fileID: 2443262897438386759}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.75, y: -0.06, z: 0}
+  m_LocalPosition: {x: -0.75, y: -0.06, z: 1}
   m_LocalScale: {x: 0.98992026, y: 0.98992026, z: 0.98992026}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -343,7 +343,7 @@ Transform:
   m_GameObject: {fileID: 4268190565846067612}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.7, y: 0, z: 0}
+  m_LocalPosition: {x: 0.7, y: 0, z: 1}
   m_LocalScale: {x: 1.0647665, y: 0.99821866, z: 1.0647665}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -566,15 +566,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ModuleSolvedEvent: {fileID: 11400000, guid: 0b8619596fa6a85df83f6692071b583d, type: 2}
   ModuleLostEvent: {fileID: 11400000, guid: d13ebb701c8d7972b9025b57b87a4c50, type: 2}
-  ModuleCreatedEvent: {fileID: 11400000, guid: 39308ae3236af5a93a7bcdc2815c6d21, type: 2}
   ModuleAskedEvent: {fileID: 11400000, guid: 1308dfa39f90b4f74b4b87f1ab24d509, type: 2}
+  Guidelines: {fileID: 11400000, guid: d951cd86273b93bcd9609778b6c296d6, type: 2}
   wireR: {fileID: 2443262897438386759}
   wireG: {fileID: 7034295737958419560}
   wireB: {fileID: 4268190565846067612}
   relativePositions:
-  - {x: -0.75, y: 0}
-  - {x: -0.06, y: 0}
-  - {x: 0.7, y: 0}
+  - {x: -0.75, y: 0, z: -1}
+  - {x: -0.06, y: 0, z: -1}
+  - {x: 0.7, y: 0, z: -1}
   HighlightColor: {r: 0.7294118, g: 0.7294118, b: 0.7294118, a: 0}
   Alpha: 1
 --- !u!61 &6032517068216733117
@@ -650,7 +650,7 @@ Transform:
   m_GameObject: {fileID: 7034295737958419560}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.06, y: 0, z: 0}
+  m_LocalPosition: {x: -0.06, y: 0, z: 1}
   m_LocalScale: {x: 0.98518926, y: 0.98518926, z: 0.98518926}
   m_ConstrainProportionsScale: 0
   m_Children:

@@ -1,0 +1,4 @@
+{
+	"templates": ["string", "string2"],
+	"fillers": ["strin3", "string4"]
+}
