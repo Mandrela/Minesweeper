@@ -6,13 +6,17 @@ using UnityEngine;
 public class module1 : MonoBehaviour
 {
     [Header("Events")]
-    [SerializeField] GameEvent ModuleSolvedEvent;
-    [SerializeField] GameEvent ModuleLostEvent;
-    [SerializeField] GameEvent ModuleAskedEvent;
-    [SerializeField] StringSet Guidelines;
-    string guideline = "lol";
+    [SerializeField] GameEvent ModuleSolvedEvent; // req
+    [SerializeField] GameEvent ModuleLostEvent; // req
+    [SerializeField] GameEvent ModuleAskedEvent; // req
+    [SerializeField] StringSet Guidelines; // req
+    public string moduleName = "wires"; // req
+    string guideline;
 
     [Header("Wiring")]
+    [SerializeField] List<string> wireColors = new List<string>{"красный", "зеленый", "синий"};
+    [SerializeField] ModuleLineTemplates lineTemplates; // req
+    string replaceMark = "%mark%"; // req
     public GameObject wireR;
     public GameObject wireG;
     public GameObject wireB;
@@ -47,12 +51,10 @@ public class module1 : MonoBehaviour
         this.HighlightColor.a = this.Alpha;
         this.NormalColor = this.rend.material.color;
 
-
-
         Debug.Log("Created wire module " + this.gameObject.name + " with correct answer " + this.correctAnswer + " and wrong answer " + this.incorrectAnswer);
     }
 
-    public void CheckSolution(Transform trans) {    // Boom output
+    public void CheckSolution(Transform trans) { // warn
         if (this.wires[this.indexes[this.correctAnswer]] == trans) {
             this.ModuleSolvedEvent.Raise();
         } else {
@@ -60,28 +62,35 @@ public class module1 : MonoBehaviour
         }
     }
 
-    void OnMouseOver() {
-        if (Input.GetMouseButtonDown(1)) {
-            this.ModuleAskedEvent.Raise();
-            Debug.Log("FUCK");
+    void OnMouseOver()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            this.ModuleAskedEvent.Raise(this.moduleName + ";" + lineTemplates.GetRandomJohn().Replace(this.replaceMark, this.wireColors[this.correctAnswer]) +
+                ";" + lineTemplates.GetRandomJohn().Replace(this.replaceMark, this.wireColors[this.incorrectAnswer]));
         }
     }
 
     //Guidelines
-    void OnEnable() {
+    void OnEnable()
+    {
+        this.guideline = lineTemplates.GetRandomGuide().Replace(this.replaceMark, this.wireColors[this.incorrectAnswer]);
         this.Guidelines.AddNonUnique(this.guideline);
     }
 
-    void OnDisable() {
+    void OnDisable()
+    {
         this.Guidelines.Remove(this.guideline);
     }
 
     // Highlight
-    void OnMouseEnter() {
+    void OnMouseEnter() 
+    {
         this.rend.material.color = this.HighlightColor;
     }
 
-    void OnMouseExit() {
+    void OnMouseExit()
+    {
         this.rend.material.color = this.NormalColor;
     }
 }

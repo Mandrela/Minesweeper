@@ -568,6 +568,12 @@ MonoBehaviour:
   ModuleLostEvent: {fileID: 11400000, guid: d13ebb701c8d7972b9025b57b87a4c50, type: 2}
   ModuleAskedEvent: {fileID: 11400000, guid: 1308dfa39f90b4f74b4b87f1ab24d509, type: 2}
   Guidelines: {fileID: 11400000, guid: d951cd86273b93bcd9609778b6c296d6, type: 2}
+  moduleName: wires
+  wireColors:
+  - "\u043A\u0440\u0430\u0441\u043D\u044B\u0439"
+  - "\u0437\u0435\u043B\u0435\u043D\u044B\u0439"
+  - "\u0441\u0438\u043D\u0438\u0439"
+  lineTemplates: {fileID: 11400000, guid: 4bc51b9f0cd38d29ca9ca888445c2bf6, type: 2}
   wireR: {fileID: 2443262897438386759}
   wireG: {fileID: 7034295737958419560}
   wireB: {fileID: 4268190565846067612}

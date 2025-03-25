@@ -26,14 +26,9 @@ public class GuideManager : MonoBehaviour
     [SerializeField] TextMeshPro textField1;
     [SerializeField] TextMeshPro textField2;    
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    void OnEnable() {
         this.leftArrowScript = this.LeftArrow.GetComponent<Arrow>();
         this.rightArrowScript = this.RightArrow.GetComponent<Arrow>();
-    }
-
-    void OnEnable() {
         UpdateBook();
     }
 
@@ -49,7 +44,7 @@ public class GuideManager : MonoBehaviour
 
     void GenerateNewBook(int ContentAmount) {
         Debug.Log("Generating new Book");
-        List<Spread> newBook = new List<Spread>();
+        List<Spread> newBook = new List<Spread>(); // Possible optimisation. Made for reliablility
         for (int i = 0; i < ContentAmount * this.GarbageMultiplier; i += 2) {
             newBook.Add(new Spread());
         }
@@ -77,7 +72,7 @@ public class GuideManager : MonoBehaviour
     }
 
     void UpdateArrows() {
-        Debug.Log("Update Arrows: " + this.currentSpreadNumber + ", " + this.Book.Count);
+        // Debug.Log("Update Arrows: " + this.currentSpreadNumber + ", " + this.Book.Count);
         if (this.currentSpreadNumber == 0)
             this.leftArrowScript.Disable();
         else

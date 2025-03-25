@@ -309,8 +309,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Lorem Ipsum Forem Gupum a totem la m aserpelo ls oaw sd wm askd wk ksa
-    s kwd kw kw kasd \ndkwaks kwd koaw \nkdw k\n kdwoaooa \nkdw\nk\nk\nk\nk"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -536,7 +535,8 @@ MonoBehaviour:
   NormalColor: {r: 1, g: 1, b: 1, a: 1}
   HighlightColor: {r: 1, g: 1, b: 1, a: 0.78431374}
   DisableColor: {r: 1, g: 1, b: 1, a: 0.5019608}
-  GarbageMultiplier: 3
+  Cock: {fileID: 0}
+  GarbageMultiplier: 2
   guideTemplates: {fileID: 11400000, guid: 557ceba1ef99fde1e8d1e146deabe281, type: 2}
   contentStrings: {fileID: 11400000, guid: d951cd86273b93bcd9609778b6c296d6, type: 2}
   textField1: {fileID: 5712897954676186191}
@@ -785,7 +785,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
