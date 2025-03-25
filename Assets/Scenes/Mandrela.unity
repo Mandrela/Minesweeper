@@ -146,7 +146,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 249341480}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1727e9b7b08db9d42a30e80188eaa19d, type: 3}
@@ -595,26 +595,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: HandGuide
       objectReference: {fileID: 0}
-    - target: {fileID: 2368775047422415338, guid: 6b7726bb5f4d895289a9555a9813ecdf, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.9987778
-      objectReference: {fileID: 0}
-    - target: {fileID: 2368775047422415338, guid: 6b7726bb5f4d895289a9555a9813ecdf, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.04942653
-      objectReference: {fileID: 0}
-    - target: {fileID: 2368775047422415338, guid: 6b7726bb5f4d895289a9555a9813ecdf, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.817
-      objectReference: {fileID: 0}
-    - target: {fileID: 2368775047422415338, guid: 6b7726bb5f4d895289a9555a9813ecdf, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 4.184
-      objectReference: {fileID: 0}
-    - target: {fileID: 2368775047422415338, guid: 6b7726bb5f4d895289a9555a9813ecdf, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -5.666
-      objectReference: {fileID: 0}
     - target: {fileID: 4418737249993035564, guid: 6b7726bb5f4d895289a9555a9813ecdf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.25385177
@@ -625,7 +605,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4418737249993035564, guid: 6b7726bb5f4d895289a9555a9813ecdf, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 4418737249993035564, guid: 6b7726bb5f4d895289a9555a9813ecdf, type: 3}
       propertyPath: m_LocalRotation.w
@@ -655,67 +635,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5712897954676186191, guid: 6b7726bb5f4d895289a9555a9813ecdf, type: 3}
-      propertyPath: m_text
-      value: "Lorem Ipsum Forem Gupum a totem la m aserpelo ls oaw sd wm askd wk
-        ksa s kwd kw kw kasd \ndkwaks kwd koaw \nkdw k\n kdwoaooa \nkdw\nk\nk\nk\nk"
-      objectReference: {fileID: 0}
-    - target: {fileID: 5712897954676186191, guid: 6b7726bb5f4d895289a9555a9813ecdf, type: 3}
-      propertyPath: m_fontSize
-      value: 1.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5712897954676186191, guid: 6b7726bb5f4d895289a9555a9813ecdf, type: 3}
-      propertyPath: m_fontStyle
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5712897954676186191, guid: 6b7726bb5f4d895289a9555a9813ecdf, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 1.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5712897954676186191, guid: 6b7726bb5f4d895289a9555a9813ecdf, type: 3}
-      propertyPath: m_enableAutoSizing
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5712897954676186191, guid: 6b7726bb5f4d895289a9555a9813ecdf, type: 3}
-      propertyPath: m_paragraphSpacing
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5712897954676186191, guid: 6b7726bb5f4d895289a9555a9813ecdf, type: 3}
-      propertyPath: m_VerticalAlignment
-      value: 256
-      objectReference: {fileID: 0}
-    - target: {fileID: 5712897954676186191, guid: 6b7726bb5f4d895289a9555a9813ecdf, type: 3}
-      propertyPath: m_HorizontalAlignment
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 7111374488650191766, guid: 6b7726bb5f4d895289a9555a9813ecdf, type: 3}
-      propertyPath: m_fontSize
-      value: 1.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7111374488650191766, guid: 6b7726bb5f4d895289a9555a9813ecdf, type: 3}
-      propertyPath: m_fontStyle
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7111374488650191766, guid: 6b7726bb5f4d895289a9555a9813ecdf, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 1.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7111374488650191766, guid: 6b7726bb5f4d895289a9555a9813ecdf, type: 3}
-      propertyPath: m_enableAutoSizing
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7111374488650191766, guid: 6b7726bb5f4d895289a9555a9813ecdf, type: 3}
-      propertyPath: m_VerticalAlignment
-      value: 256
-      objectReference: {fileID: 0}
-    - target: {fileID: 7111374488650191766, guid: 6b7726bb5f4d895289a9555a9813ecdf, type: 3}
-      propertyPath: m_HorizontalAlignment
-      value: 16
-      objectReference: {fileID: 0}
     - target: {fileID: 8914341377721405143, guid: 6b7726bb5f4d895289a9555a9813ecdf, type: 3}
-      propertyPath: guideTempl
-      value: 
-      objectReference: {fileID: 11400000, guid: 557ceba1ef99fde1e8d1e146deabe281, type: 2}
+      propertyPath: GarbageMultiplier
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -5,7 +5,8 @@ using UnityEngine;
 public class reveal : MonoBehaviour
 {
     bool IsRevealed = false;
-
+    bool IsCompletedMovement = true;
+    
     public float speed;
     public GameObject Hand;
     public GameObject TargetHID;
@@ -18,20 +19,21 @@ public class reveal : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetMouseButtonDown(1))
+        if(Input.GetMouseButtonDown(1) && IsCompletedMovement)
         {
             IsRevealed = !IsRevealed;
-            if (IsRevealed)
-                script.UpdatePagesList();
+            IsCompletedMovement = false;
         }
 
-        if(IsRevealed)
-        {
-            Hand.transform.position = Vector3.MoveTowards(Hand.transform.position, TargetREV.transform.position, speed);
-        }
-        else
-        {
-            Hand.transform.position = Vector3.MoveTowards(Hand.transform.position, TargetHID.transform.position, speed);
+        if (!IsCompletedMovement)
+        {    
+            Vector3 newPosition = Vector3.MoveTowards(Hand.transform.position, (IsRevealed ? TargetREV : TargetHID).transform.position, speed);
+            if (newPosition == Hand.transform.position) {
+                IsCompletedMovement = true;
+                if (IsRevealed)
+                    script.UpdateBook();
+            }
+            Hand.transform.position = newPosition;
         }
     }
 }

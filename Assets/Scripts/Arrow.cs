@@ -31,8 +31,9 @@ public class Arrow : MonoBehaviour
 
     void OnMouseDown() {
         if (!disabled) {
-            HostScript.ChangeText(IsRight);
+            HostScript.ChangeCurrentSpreadNum(IsRight);
         }
+        this.OnMouseEnter();
     }
 
     public void Disable() {

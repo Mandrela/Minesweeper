@@ -1,4 +1,4 @@
 {
-	"templates": ["string", "string2"],
+	"templates": ["Template %mark% one", "Template %mark% twoooo"],
 	"fillers": ["strin3", "string4"]
 }
