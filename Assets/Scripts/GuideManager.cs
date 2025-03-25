@@ -11,6 +11,7 @@ public class GuideManager : MonoBehaviour
     public Color NormalColor;
     public Color HighlightColor;
     public Color DisableColor;
+    public Material Cock;
     Arrow leftArrowScript;
     Arrow rightArrowScript;
 
