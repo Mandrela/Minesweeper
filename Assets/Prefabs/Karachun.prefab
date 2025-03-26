@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 2559400377783533693}
   - component: {fileID: 6119499908248009226}
   - component: {fileID: 5589035659886101350}
+  - component: {fileID: 1566033832406964321}
+  - component: {fileID: 4010277116496696806}
   m_Layer: 0
   m_Name: Karachun
   m_TagString: Untagged
@@ -62,11 +64,13 @@ MonoBehaviour:
   StressLevel:
     UseConstant: 0
     ConstantValue: 0
-    Variable: {fileID: 11400000, guid: cd8de354e2108e6aeb6f1a64638a4cc7, type: 2}
+    Variable: {fileID: 11400000, guid: 1ddbdcfced1d81a729086e9293093821, type: 2}
   InitialStressLevel: 50
   ModuleSolvedStressDecrementValue: 15
   TimerStressIncrementValue: 15
   DuckValue: 50
+  SuccessfulSedation: 25
+  AbortiveSedation: 25
   StateThresholds: 0000000005000000190000003c000000500000005f00000064000000
 --- !u!114 &2559400377783533693
 MonoBehaviour:
@@ -144,6 +148,62 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: KarachunManager, Assembly-CSharp
         m_MethodName: Duck
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1566033832406964321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286291750955385709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 130ad4afb20152afd9347cabe06b32cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: fb9b1e9433480a7aa94deb77ca275acd, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6784701391237849140}
+        m_TargetAssemblyTypeName: KarachunManager, Assembly-CSharp
+        m_MethodName: Dialog
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4010277116496696806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286291750955385709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 130ad4afb20152afd9347cabe06b32cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 1308dfa39f90b4f74b4b87f1ab24d509, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6784701391237849140}
+        m_TargetAssemblyTypeName: KarachunManager, Assembly-CSharp
+        m_MethodName: ModuleAsked
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

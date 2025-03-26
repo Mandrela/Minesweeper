@@ -1494,7 +1494,7 @@ MonoBehaviour:
   textField2: {fileID: 1666084475}
   textField3: {fileID: 621059965}
   textField4: {fileID: 1244122934}
-  Stress: {fileID: 11400000, guid: cd8de354e2108e6aeb6f1a64638a4cc7, type: 2}
+  Stress: {fileID: 11400000, guid: 1ddbdcfced1d81a729086e9293093821, type: 2}
   State: {fileID: 11400000, guid: afda43a8c3b6577e18c14a4d6b2f2f1d, type: 2}
   Type: {fileID: 11400000, guid: 9c2e16e335383a2c2886c9abd4099cfa, type: 2}
   Answer: {fileID: 11400000, guid: 7a957b335ec2d290db0bd6f7bac0771b, type: 2}

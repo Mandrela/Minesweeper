@@ -32,6 +32,8 @@ public class module1 : MonoBehaviour
     Color NormalColor;
     Renderer rend;
 
+    string ProtoDelimiter = ";";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -66,8 +68,9 @@ public class module1 : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
-            this.ModuleAskedEvent.Raise(this.moduleName + ";" + lineTemplates.GetRandomJohn().Replace(this.replaceMark, this.wireColors[this.correctAnswer]) +
-                ";" + lineTemplates.GetRandomJohn().Replace(this.replaceMark, this.wireColors[this.incorrectAnswer]));
+            this.ModuleAskedEvent.Raise(this.moduleName + this.ProtoDelimiter + // shit thing
+                lineTemplates.GetRandomJohn().Replace(this.replaceMark, this.wireColors[this.correctAnswer]) + this.ProtoDelimiter +
+                lineTemplates.GetRandomJohn().Replace(this.replaceMark, this.wireColors[this.incorrectAnswer]));
         }
     }
 
