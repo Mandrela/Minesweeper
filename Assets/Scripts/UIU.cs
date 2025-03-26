@@ -10,7 +10,7 @@ public class UIU : MonoBehaviour
     public TextMeshProUGUI textField3;
     public TextMeshProUGUI textField4;
 
-    public FloatValue Stress;
+    public IntValue Stress;
     public IntValue State;
     public IntValue Type;
     public StringValue Answer;

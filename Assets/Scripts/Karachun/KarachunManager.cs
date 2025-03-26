@@ -8,18 +8,21 @@ public class KarachunManager : MonoBehaviour
     public StringReference AnswerText;
     public IntReference StressState;
     public IntReference StressType;
-    public FloatReference StressLevel;
+    public IntReference StressLevel;
 
     [Header("Preferences")]
-    public float InitialStressLevel;
+    public int InitialStressLevel = 20;
+    [Space]
     public int ModuleSolvedStressDecrementValue = 15;
     public int TimerStressIncrementValue = 15;
     public int DuckValue = 50;
+    [Space]
     public int SuccessfulSedation = 25;
     public int AbortiveSedation = 25;
-
-    [Header("Status")]
+    [Space]
     public List<int> StateThresholds = new List<int> {0, 5, 25, 60, 80, 95, 100};
+
+    string ProtoDelimiter = ";";
 
     void OnEnable()
     {
@@ -29,7 +32,7 @@ public class KarachunManager : MonoBehaviour
         CheckChangeStatus();
     }
 
-    void DecreaseStress(float value)
+    void DecreaseStress(int value)
     {
         if (StressLevel.Value < value)
         {
@@ -41,7 +44,7 @@ public class KarachunManager : MonoBehaviour
         CheckChangeStatus();
     }
 
-    void IncreaseStress(float value)
+    void IncreaseStress(int value)
     {
         if (StressLevel.Value + value > 100)
         {
@@ -107,4 +110,26 @@ public class KarachunManager : MonoBehaviour
             this.AnswerText.Value = "You made it worse"; // future mark
         }
     }
+
+    public void ModuleAsked(string message)
+    {
+        ModuleAnswer module = new ModuleAnswer(message, this.ProtoDelimiter);
+        this.AnswerText.Value = "Module " + module.Name + " asked me tell you that you should " + module.CorrectMove + " and shouldn't " + module.WrongMove; // future mark
+    }
+}
+
+
+class ModuleAnswer
+{
+    public string Name;
+    public string CorrectMove;
+    public string WrongMove;
+
+    public ModuleAnswer(string s, string delimiter)
+    {
+        string[] ss = s.Split(delimiter, 3);
+        Name = ss[0];
+        CorrectMove = ss[1];
+        WrongMove = ss[2];
+    } 
 }
