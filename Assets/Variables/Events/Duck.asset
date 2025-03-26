@@ -9,7 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa4719e6674799b07a12762a2a8bceea, type: 3}
-  m_Name: State
+  m_Script: {fileID: 11500000, guid: a70d18b808e459c7694dd03e6f6fe642, type: 3}
+  m_Name: Duck
   m_EditorClassIdentifier: 
-  Value: 0
