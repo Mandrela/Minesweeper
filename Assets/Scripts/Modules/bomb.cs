@@ -15,9 +15,10 @@ public class bomb : MonoBehaviour
         child.GetChild(0).GetComponent<Renderer>().enabled = true;
         child.GetChild(1).GetComponent<Renderer>().enabled = true;
 
+        Vector2 currentPosition = new Vector2(transform.position.x, transform.position.y);
         int[] indexes = Utils.GenerateSequence(modulesAmount);
         for (int i = 0; i < modulesAmount; i++) {
-            Instantiate(modules[indexes[i]], modulesPositions[i], Quaternion.identity);
+            Instantiate(modules[indexes[i]], currentPosition + modulesPositions[i], Quaternion.identity);
         }
 
         Debug.Log("Bomb created");
