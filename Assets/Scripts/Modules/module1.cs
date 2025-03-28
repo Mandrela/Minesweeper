@@ -33,6 +33,7 @@ public class module1 : MonoBehaviour
     Renderer rend;
 
     string ProtoDelimiter = ";";
+    public bool IsSolved;
 
     // Start is called before the first frame update
     void Start()
@@ -62,6 +63,7 @@ public class module1 : MonoBehaviour
     {
         if (this.wires[this.indexes[this.correctAnswer]] == trans)
         {
+            IsSolved = true;
             this.ModuleSolvedEvent.Raise();
         }
         else
@@ -72,7 +74,7 @@ public class module1 : MonoBehaviour
 
     void OnMouseOver()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (!IsSolved && Input.GetMouseButtonDown(1))
         {
             this.ModuleAskedEvent.Raise(this.moduleName + this.ProtoDelimiter + // shit thing
                 lineTemplates.GetRandom().Replace(this.replaceMark, this.wireColors[this.indexes[this.correctAnswer]]) + this.ProtoDelimiter +
@@ -101,7 +103,8 @@ public class module1 : MonoBehaviour
     // Highlight
     void OnMouseEnter() 
     {
-        this.rend.material.color = this.HighlightColor;
+        if (!IsSolved)
+            this.rend.material.color = this.HighlightColor;
     }
 
     void OnMouseExit()

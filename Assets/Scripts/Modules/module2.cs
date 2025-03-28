@@ -31,6 +31,7 @@ public class module2 : MonoBehaviour
     Renderer rend;
 
     bool fl = true;
+    public bool IsSolved = false;
 
     void Start()
     {
@@ -63,6 +64,7 @@ public class module2 : MonoBehaviour
             {
                 ModuleLostEvent.Raise();
             }
+            IsSolved = true;
             fl = false;
         }
 
@@ -70,6 +72,7 @@ public class module2 : MonoBehaviour
 
     void OnMouseEnter()
     {
+        if (!IsSolved)
         this.rend.material.color = this.HighlightColor;
     }
     void OnMouseExit()
@@ -79,7 +82,7 @@ public class module2 : MonoBehaviour
 
     void OnMouseOver()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) && !IsSolved)
         {
             this.ModuleAskedEvent.Raise(this.moduleName + this.ProtoDelimiter +
                 lineTemplates.GetRandom().Replace(this.replaceMark, this.colors[this.needed_color]) + this.ProtoDelimiter +

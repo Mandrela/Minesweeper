@@ -11,7 +11,7 @@ public class module3button : MonoBehaviour
     Color NormalColor;
     Renderer rend;
     module3 ParentScript;
-    int Digit = -1;
+    public int Digit = -1;
     public bool isPressed = false;
 
     void Start() {
@@ -22,8 +22,12 @@ public class module3button : MonoBehaviour
         UpdateDigitField();
     }
 
-    void UpdateDigitField()
+    public void UpdateDigitField(int newDigit = -1)
     {
+        if (newDigit != -1)
+        {
+            Digit = newDigit;
+        }
         DigitField.text = "" + Digit;
     }
 
