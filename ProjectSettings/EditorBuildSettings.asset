@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Mandrela.unity
     guid: b7e60e93d5ccdf19c9a13b58fdc38be7
+  - enabled: 1
+    path: Assets/Scenes/YOU_ACTUALLY_WON.unity
+    guid: 5416a4fb61eba744094dde35f8329b67
   m_configObjects: {}
