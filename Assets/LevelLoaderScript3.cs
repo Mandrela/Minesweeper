@@ -7,9 +7,13 @@ public class LevelLoaderScript3 : MonoBehaviour
 {
     public GameObject thingy;
     public Animator transition;
+
+    public GameObject korachunAVA;
+    public GameObject Vasya;
+
     private void Start()
     {
-        Invoke("LoadNextLevel", 54);
+        Invoke("TUTACTIVE", 54);
         Invoke("ThisIsYou", 3);
     }   
     void Update()
@@ -36,5 +40,11 @@ public class LevelLoaderScript3 : MonoBehaviour
     public void ThisIsYou()
     {
         thingy.SetActive(false);
+    }
+
+    public void TUTACTIVE()
+    {
+        korachunAVA.SetActive(false);
+        Vasya.SetActive(false);
     }
 }
