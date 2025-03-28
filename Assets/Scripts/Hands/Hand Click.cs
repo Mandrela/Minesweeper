@@ -5,6 +5,7 @@ using UnityEngine.UIElements;
 
 public class HandClick : MonoBehaviour
 {
+    public AudioSource aud;
     Animator animator;
     void Start()
     {
@@ -15,5 +16,9 @@ public class HandClick : MonoBehaviour
     {
         animator.SetBool("IsClickL", Input.GetMouseButton(0));
         animator.SetBool("IsClickR", Input.GetMouseButton(1));
+        if(Input.GetMouseButtonDown(0))
+        {
+            aud.Play();
+        }
     }
 }
