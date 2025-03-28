@@ -67,7 +67,8 @@ MonoBehaviour:
     Variable: {fileID: 11400000, guid: 1ddbdcfced1d81a729086e9293093821, type: 2}
   InitialStressLevel: 50
   ModuleSolvedStressDecrementValue: 15
-  TimerStressIncrementValue: 15
+  ModuleAskStressIncrementValue: 5
+  TimerStressIncrementValue: 1
   DuckValue: 50
   SuccessfulSedation: 25
   AbortiveSedation: 25

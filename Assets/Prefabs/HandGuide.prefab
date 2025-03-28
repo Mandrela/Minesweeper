@@ -518,6 +518,8 @@ MonoBehaviour:
   Hand: {fileID: 4249899688956208139}
   TargetHID: {fileID: 1997294416727446406}
   TargetREV: {fileID: 3121848636815854340}
+  Timerr: {fileID: 0}
+  SpeedUpCoeff: 2
 --- !u!114 &8914341377721405143
 MonoBehaviour:
   m_ObjectHideFlags: 0

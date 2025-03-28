@@ -14,7 +14,8 @@ public class KarachunManager : MonoBehaviour
     public int InitialStressLevel = 20;
     [Space]
     public int ModuleSolvedStressDecrementValue = 15;
-    public int TimerStressIncrementValue = 15;
+    public int ModuleAskStressIncrementValue = 5;
+    public int TimerStressIncrementValue = 1;
     public int DuckValue = 50;
     [Space]
     public int SuccessfulSedation = 25;
@@ -113,6 +114,7 @@ public class KarachunManager : MonoBehaviour
 
     public void ModuleAsked(string message)
     {
+        IncreaseStress(this.ModuleAskStressIncrementValue);
         ModuleAnswer module = new ModuleAnswer(message, this.ProtoDelimiter);
         this.AnswerText.Value = "Module " + module.Name + " asked me tell you that you should " + module.CorrectMove + " and shouldn't " + module.WrongMove; // future mark
     }
