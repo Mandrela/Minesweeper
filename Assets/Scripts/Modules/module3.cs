@@ -47,18 +47,32 @@ public class module3 : MonoBehaviour
 
     public void PushDigit(int SiblingDigit)
     {
-        if (curretca >= 3 || correctAnswer[curretca++] != SiblingDigit)
+        //Debug.Log("Pachimu: " + SiblingDigit);
+        if (SiblingDigit == correctAnswer[curretca])
         {
+            if (++curretca >= 3)
+            {
+                ModuleSolvedEvent.Raise();
+                StatusShitGreen.GetComponent<Renderer>().enabled = true;
+                StatusShitRed.GetComponent<Renderer>().enabled = false;
+                IsSolved = true;
+            }
+        } else {
             ModuleLostEvent.Raise();
             IsSolved = true;
         }
-        else if (curretca >= 3)
+        /*
+        if (curretca >= 3 || correctAnswer[curretca] != SiblingDigit)
+        {
+            ModuleLostEvent.Raise();
+        }
+        if (curretca >= 3 && correctAnswer[curretca++] == SiblingDigit )
         {
             ModuleSolvedEvent.Raise();
             StatusShitGreen.GetComponent<Renderer>().enabled = true;
             StatusShitRed.GetComponent<Renderer>().enabled = false;
             IsSolved = true;
-        }
+        }*/
     }
 
     void OnMouseOver()

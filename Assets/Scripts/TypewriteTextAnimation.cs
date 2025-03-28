@@ -6,6 +6,9 @@ using TMPro;
 [ExecuteInEditMode()]
 public class TypewriteTextAnimation : MonoBehaviour
 {
+    public GameEvent TypingStartEvent;
+    public GameEvent TypingEndEvent;
+
     [Header("Animation Settings")]
     public float LetterTypeDelaySeconds = 1f;
     public float Koeffichient = 1;
@@ -17,6 +20,7 @@ public class TypewriteTextAnimation : MonoBehaviour
     Coroutine Loop;
     string TargetText;
     int CurrentTextPosition = 0;
+    bool fl = false;
 
     void OnEnable()
     {
@@ -37,10 +41,17 @@ public class TypewriteTextAnimation : MonoBehaviour
                 TargetText = TextToCopy.Value;
                 CurrentTextPosition = 0;
                 TextField.text = "";
+                fl = true;
+                TypingStartEvent.Raise();
             }
             else if (CurrentTextPosition < TargetText.Length)
             {
                 TextField.text += TargetText[CurrentTextPosition++];
+            }
+            else if (fl)
+            {
+                fl = false;
+                TypingEndEvent.Raise();
             }
             yield return new WaitForSeconds(LetterTypeDelaySeconds * (Utils.Next(OneFromValueChance) != 0 ? 1 : Koeffichient));
         }
