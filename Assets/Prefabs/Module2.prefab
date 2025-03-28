@@ -303,8 +303,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.84, y: 2.73, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.85, y: 0.85, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7288387218377805850}
   - {fileID: 8569036155647567018}
@@ -391,7 +391,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -424,6 +424,13 @@ MonoBehaviour:
   ModuleAskedEvent: {fileID: 11400000, guid: 1308dfa39f90b4f74b4b87f1ab24d509, type: 2}
   Guidelines: {fileID: 11400000, guid: d951cd86273b93bcd9609778b6c296d6, type: 2}
   moduleName: lights
-  lineTemplates: {fileID: 0}
+  animatorik_LIGHT: {fileID: 2266051199461501375}
+  animatorik_BUTTON: {fileID: 6867904652829458903}
+  HoldDelay: 0.5
+  lineTemplates: {fileID: 11400000, guid: 99ac62226e2529b23b48214778bb1596, type: 2}
+  colors:
+  - "\u043A\u0440\u0430\u0441\u043D\u043E\u0433\u043E"
+  - "\u0437\u0435\u043B\u0435\u043D\u043E\u0433\u043E"
+  - "\u0441\u0438\u043D\u0435\u0433\u043E"
   HighlightColor: {r: 0.7294118, g: 0.7294118, b: 0.7294118, a: 0}
   Alpha: 1

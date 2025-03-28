@@ -9,8 +9,6 @@ public class Light_button : MonoBehaviour
     public float Alpha = 1f;
     public Animator animatorius;
     
-    
-    
     Color NormalColor;
     Renderer rend;
     module2 ParentScript;
@@ -31,11 +29,6 @@ public class Light_button : MonoBehaviour
     {
         rend.material.color = NormalColor;
         animatorius.SetBool("IsPressed", false);
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     void OnMouseDown()

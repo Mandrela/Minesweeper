@@ -5,27 +5,24 @@ using UnityEngine;
 [CreateAssetMenu(fileName="ModuleLineTemplates", menuName="ScriptableObjects/ModuleLineTemplates")]
 public class ModuleLineTemplates : ScriptableObject
 {
-    Kulebaka data = new Kulebaka();
     public TextAsset templateFile;
+    FuckedArray data;
 
-    private void OnEnable() {
-        this.data = JsonUtility.FromJson<Kulebaka>(templateFile.text);
+    void OnEnable()
+    {
+        this.data = JsonUtility.FromJson<FuckedArray>(templateFile.text);
+        this.data._loaded = true;
     }
 
-    public string GetRandomJohn() {
-        Debug.Log("whaaat");
-        return this.data.john[Utils.Next(this.data.john.Count)];
-    }
-
-    public string GetRandomGuide() {
-        return this.data.guide[Utils.Next(this.data.guide.Count)];
+    public string GetRandom()
+    {
+        return this.data.str[Utils.Next(this.data.str.Count)];
     }
 
 }
 
-[System.Serializable]
-public class Kulebaka
+class FuckedArray
 {
-    public List<string> john = new List<string>();
-    public List<string> guide = new List<string>();
+    public List<string> str;
+    public bool _loaded = false;
 }

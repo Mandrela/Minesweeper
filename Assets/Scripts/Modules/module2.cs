@@ -16,9 +16,13 @@ public class module2 : MonoBehaviour
     private int very_wrong_color;
     public Animator animatorik_LIGHT;
     public Animator animatorik_BUTTON;
+    public float HoldDelay = 0.3f;
 
-    [SerializeField] ModuleLineTemplates lineTemplates; 
+    [Header("Colors")]
+    [SerializeField] ModuleLineTemplates lineTemplates;
+    [SerializeField] List<string> colors = new List<string> {"красного", "зеленого", "синего"};
     string replaceMark = "%mark%";
+    string ProtoDelimiter = ";";
 
     [Header("Highlight options")]
     public Color HighlightColor;
@@ -49,16 +53,19 @@ public class module2 : MonoBehaviour
 
     private void Update()
     {
-        if(animatorik_BUTTON.GetBool("IsPressed")&&(animatorik_LIGHT.GetInteger("Color_ID") == needed_color))
+        if (fl && animatorik_BUTTON.GetBool("IsPressed"))
         {
-            ModuleSolvedEvent.Raise();
+            if(animatorik_LIGHT.GetInteger("Color_ID") == needed_color)
+            {
+                ModuleSolvedEvent.Raise();
+            }
+            else
+            {
+                ModuleLostEvent.Raise();
+            }
             fl = false;
-            Debug.Log("Lights were defused");
         }
-        else if(animatorik_BUTTON.GetBool("IsPressed") && (animatorik_LIGHT.GetInteger("Color_ID") != needed_color))
-        {
-            ModuleLostEvent.Raise();
-        }
+
     }
 
     void OnMouseEnter()
@@ -70,12 +77,40 @@ public class module2 : MonoBehaviour
         this.rend.material.color = this.NormalColor;
     }
 
+    void OnMouseOver()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            this.ModuleAskedEvent.Raise(this.moduleName + this.ProtoDelimiter +
+                lineTemplates.GetRandom().Replace(this.replaceMark, this.colors[this.needed_color]) + this.ProtoDelimiter +
+                lineTemplates.GetRandom().Replace(this.replaceMark, this.colors[this.very_wrong_color]));
+        }
+    }
+
     IEnumerator Timer()
     {
-        while (true)
+        while (fl)
         {
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(HoldDelay);
             FixedUpdateWAIT();
         }
+        animatorik_LIGHT.SetInteger("Color_ID", 3);
+    }
+
+    void OnEnable()
+    {
+        StartCoroutine(AwaitFor());
+    }
+
+    IEnumerator AwaitFor() // kostiiiiiiiiiiiiiiiiiiiiiiiiiil
+    {
+        yield return new WaitForSeconds(1);
+        this.guideline = lineTemplates.GetRandom().Replace(this.replaceMark, this.colors[this.very_wrong_color]);
+        this.Guidelines.AddNonUnique(this.guideline);
+    }
+
+    void OnDisable()
+    {
+        this.Guidelines.Remove(this.guideline);
     }
 }

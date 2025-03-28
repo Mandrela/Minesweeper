@@ -536,7 +536,7 @@ MonoBehaviour:
   HighlightColor: {r: 1, g: 1, b: 1, a: 0.78431374}
   DisableColor: {r: 1, g: 1, b: 1, a: 0.5019608}
   Cock: {fileID: 0}
-  GarbageMultiplier: 2
+  GarbageMultiplier: 3
   guideTemplates: {fileID: 11400000, guid: 557ceba1ef99fde1e8d1e146deabe281, type: 2}
   contentStrings: {fileID: 11400000, guid: d951cd86273b93bcd9609778b6c296d6, type: 2}
   textField1: {fileID: 5712897954676186191}

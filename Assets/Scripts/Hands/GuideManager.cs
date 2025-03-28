@@ -27,6 +27,12 @@ public class GuideManager : MonoBehaviour
     [SerializeField] TextMeshPro textField2;    
 
     void OnEnable() {
+        StartCoroutine(AwaitFor());
+    }
+
+    IEnumerator AwaitFor() // kostiiiiiiiiiiiiiiiiiiiiiiiiiil
+    {
+        yield return new WaitForSeconds(1);
         this.leftArrowScript = this.LeftArrow.GetComponent<Arrow>();
         this.rightArrowScript = this.RightArrow.GetComponent<Arrow>();
         UpdateBook();

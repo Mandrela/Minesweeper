@@ -39,13 +39,15 @@ public class module1 : MonoBehaviour
     {
         this.wires = new Transform[] {this.wireR.transform, this.wireG.transform, this.wireB.transform};
         this.indexes = Utils.GenerateSequence(3);
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++)
+        {
             this.wires[this.indexes[i]].localPosition = this.relativePositions[i];
         }
 
         this.correctAnswer = Utils.Next(3);
         this.incorrectAnswer = Utils.Next(3);
-        while (this.incorrectAnswer == this.correctAnswer) {
+        while (this.incorrectAnswer == this.correctAnswer)
+        {
             this.incorrectAnswer = Utils.Next(3);
         }
 
@@ -53,13 +55,17 @@ public class module1 : MonoBehaviour
         this.HighlightColor.a = this.Alpha;
         this.NormalColor = this.rend.material.color;
 
-        Debug.Log("Created wire module " + this.gameObject.name + " with correct answer " + this.correctAnswer + " and wrong answer " + this.incorrectAnswer);
+        // Debug.Log("Created wire module " + this.gameObject.name + " with correct answer " + this.correctAnswer + " and wrong answer " + this.incorrectAnswer);
     }
 
-    public void CheckSolution(Transform trans) { // warn
-        if (this.wires[this.indexes[this.correctAnswer]] == trans) {
+    public void CheckSolution(Transform trans)  // warn
+    {
+        if (this.wires[this.indexes[this.correctAnswer]] == trans)
+        {
             this.ModuleSolvedEvent.Raise();
-        } else {
+        }
+        else
+        {
             this.ModuleLostEvent.Raise();
         }
     }
@@ -69,15 +75,21 @@ public class module1 : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             this.ModuleAskedEvent.Raise(this.moduleName + this.ProtoDelimiter + // shit thing
-                lineTemplates.GetRandomJohn().Replace(this.replaceMark, this.wireColors[this.correctAnswer]) + this.ProtoDelimiter +
-                lineTemplates.GetRandomJohn().Replace(this.replaceMark, this.wireColors[this.incorrectAnswer]));
+                lineTemplates.GetRandom().Replace(this.replaceMark, this.wireColors[this.indexes[this.correctAnswer]]) + this.ProtoDelimiter +
+                lineTemplates.GetRandom().Replace(this.replaceMark, this.wireColors[this.indexes[this.incorrectAnswer]]));
         }
     }
 
     //Guidelines
     void OnEnable()
     {
-        this.guideline = lineTemplates.GetRandomGuide().Replace(this.replaceMark, this.wireColors[this.incorrectAnswer]);
+        StartCoroutine(AwaitFor());
+    }
+
+    IEnumerator AwaitFor() // kostiiiiiiiiiiiiiiiiiiiiiiiiiil
+    {
+        yield return new WaitForSeconds(1);
+        this.guideline = lineTemplates.GetRandom().Replace(this.replaceMark, this.wireColors[this.indexes[this.incorrectAnswer]]);
         this.Guidelines.AddNonUnique(this.guideline);
     }
 
