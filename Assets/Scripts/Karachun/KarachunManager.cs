@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class KarachunManager : MonoBehaviour
 {
+    public GameEvent GameWon;
     [Header("Variables")]
     public StringReference AnswerText;
     public IntReference StressState;
@@ -24,9 +25,33 @@ public class KarachunManager : MonoBehaviour
     public List<int> StateThresholds = new List<int> {0, 5, 25, 60, 80, 95, 100};
 
     string ProtoDelimiter = ";";
+    string replaceMark = "%mark%";
+    bool fl = true;
+
+    public int modulesToSolveCount = 3;
+    public int modulesSolved = 0;
+
+    [Header("Data files")]
+    public ModuleLineTemplates DimlyLines;
+    public ModuleLineTemplates HoofLines;
+    public ModuleLineTemplates FuckYou;
+    public ModuleLineTemplates TotallyTrue;
+    [Space()]
+    public ModuleLineTemplates FearLines;
+    public ModuleLineTemplates DespairLines;
+    public ModuleLineTemplates PanicLines;
+    public ModuleLineTemplates NormalLines;
+    [Space()]
+    public ModuleLineTemplates SuccessLines;
+
+    List<ModuleLineTemplates> Liners = new List<ModuleLineTemplates>();
 
     void OnEnable()
     {
+        Liners.Add(FearLines);
+        Liners.Add(DespairLines);
+        Liners.Add(PanicLines);
+        Liners.Add(NormalLines);
         StressLevel.Value = InitialStressLevel;
         StressState.Value = 0;
         AnswerText.Value = "";
@@ -74,8 +99,19 @@ public class KarachunManager : MonoBehaviour
 
     public void ModuleSolved()
     {
+        this.modulesSolved++;
         DecreaseStress(this.ModuleSolvedStressDecrementValue);
-        this.AnswerText.Value = "You solved something!... Probably..."; // future mark
+        if (this.modulesSolved >= this.modulesToSolveCount)
+        {
+            this.fl = false;
+            this.StressState.Value = 0;
+            this.AnswerText.Value = "Ты решил их все, ты огромный молодец!!! Я горжусь твоим пальцем";
+            GameWon.Raise();
+        }
+        else 
+        {
+            this.AnswerText.Value = SuccessLines.GetRandom().Replace(this.replaceMark, "" +  (this.modulesToSolveCount - this.modulesSolved));
+        }
     }
 
     public void TimerTrigger()
@@ -98,25 +134,60 @@ public class KarachunManager : MonoBehaviour
 
         if (this.StressState.Value <= 1)
         {
-            this.AnswerText.Value = "I don't understand you"; // future mark
+            this.AnswerText.Value = DimlyLines.GetRandom();
         }
         else if (typeOfStress == this.StressType.Value)
         {
             DecreaseStress(this.SuccessfulSedation);
-            this.AnswerText.Value = "What a relief"; // future mark
+            this.AnswerText.Value = HoofLines.GetRandom(); 
         }
         else
         {
             IncreaseStress(this.AbortiveSedation);
-            this.AnswerText.Value = "You made it worse"; // future mark
+            this.AnswerText.Value = FuckYou.GetRandom(); 
         }
     }
 
     public void ModuleAsked(string message)
     {
-        IncreaseStress(this.ModuleAskStressIncrementValue);
-        ModuleAnswer module = new ModuleAnswer(message, this.ProtoDelimiter);
-        this.AnswerText.Value = "Module " + module.Name + " asked me tell you that you should " + module.CorrectMove + " and shouldn't " + module.WrongMove; // future mark
+        if (this.fl)
+        {
+            this.fl = false;
+            ModuleAnswer modu1e = new ModuleAnswer(message, this.ProtoDelimiter);
+            switch (StressState.Value)
+            {
+                case 0:
+                {
+                    this.AnswerText.Value = TotallyTrue.GetRandom().Replace(this.replaceMark, modu1e.CorrectMove);
+                    break;
+                }
+                case 5:
+                {
+                    this.AnswerText.Value = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+                    break;
+                }
+                default:
+                {
+                    if (Utils.Next(100) > this.StressLevel.Value)
+                    {
+                        this.AnswerText.Value = this.Liners[this.StressState.Value >= 2 ? this.StressType.Value : 3].
+                            GetRandom().Replace(this.replaceMark, modu1e.CorrectMove);
+                    }
+                    else
+                    {
+                        this.AnswerText.Value = this.Liners[this.StressState.Value >= 2 ? this.StressType.Value : 3].
+                            GetRandom().Replace(this.replaceMark, modu1e.WrongMove);
+                    }
+                    break;
+                }
+            }
+            IncreaseStress(this.ModuleAskStressIncrementValue);
+        }
+    }
+
+    public void SetFlag()
+    {
+        this.fl = true;
     }
 }
 

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5589035659886101350}
   - component: {fileID: 1566033832406964321}
   - component: {fileID: 4010277116496696806}
+  - component: {fileID: 7296432613867608477}
   m_Layer: 0
   m_Name: Karachun
   m_TagString: Untagged
@@ -49,6 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 915b2d29d8325a714821c8005f852879, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameWon: {fileID: 11400000, guid: 3fa5442a5ba405779a8dce9066392880, type: 2}
   AnswerText:
     UseConstant: 0
     ConstantValue: 
@@ -73,6 +75,17 @@ MonoBehaviour:
   SuccessfulSedation: 25
   AbortiveSedation: 25
   StateThresholds: 0000000005000000190000003c000000500000005f00000064000000
+  modulesToSolveCount: 3
+  modulesSolved: 0
+  DimlyLines: {fileID: 11400000, guid: 8d9b5d49cd7fd84e59dc46daa968740d, type: 2}
+  HoofLines: {fileID: 11400000, guid: 7cd9c9eb69f3449e498fc127af8a9387, type: 2}
+  FuckYou: {fileID: 11400000, guid: 2078183aa1b963d6dbd03f9e67511750, type: 2}
+  TotallyTrue: {fileID: 11400000, guid: 78814794ea0f84039906f3f66c792e0a, type: 2}
+  FearLines: {fileID: 11400000, guid: 781ea857f0873a298b551760090110d0, type: 2}
+  DespairLines: {fileID: 11400000, guid: 72679e02642a49d47a607dfefea61d39, type: 2}
+  PanicLines: {fileID: 11400000, guid: 4a95215cdeef199bba277bb3ece459dd, type: 2}
+  NormalLines: {fileID: 11400000, guid: 2a512995b471947c2acda5f6f314ceca, type: 2}
+  SuccessLines: {fileID: 11400000, guid: 9bf978fd7db377c899aac6066aa08556, type: 2}
 --- !u!114 &2559400377783533693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,6 +218,34 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: KarachunManager, Assembly-CSharp
         m_MethodName: ModuleAsked
         m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7296432613867608477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286291750955385709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 130ad4afb20152afd9347cabe06b32cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: c9e860b9821237040a68993376713a53, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6784701391237849140}
+        m_TargetAssemblyTypeName: KarachunManager, Assembly-CSharp
+        m_MethodName: SetFlag
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
