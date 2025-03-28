@@ -6,6 +6,10 @@ using UnityEngine.SceneManagement;
 public class LevelLoaderScript : MonoBehaviour
 {
     public Animator transition;
+    private void Start()
+    {
+        Invoke("LoadNextLevel", 6);
+    }
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
