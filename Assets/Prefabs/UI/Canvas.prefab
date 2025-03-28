@@ -1345,7 +1345,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: What a relief
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 86adbde2e87f5f72c949ebdbf27d0689, type: 2}
   m_sharedMaterial: {fileID: 180895618237072706, guid: 86adbde2e87f5f72c949ebdbf27d0689, type: 2}

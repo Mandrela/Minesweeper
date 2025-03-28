@@ -67,7 +67,7 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: 1ddbdcfced1d81a729086e9293093821, type: 2}
-  InitialStressLevel: 50
+  InitialStressLevel: 10
   ModuleSolvedStressDecrementValue: 15
   ModuleAskStressIncrementValue: 5
   TimerStressIncrementValue: 1

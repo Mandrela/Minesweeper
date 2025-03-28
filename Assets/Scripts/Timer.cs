@@ -11,7 +11,7 @@ public class Timer : MonoBehaviour
     public bool IsTimerEnabled = false;
     public float TimeIntervalInSeconds = 1;
 
-    float TimeLast = 420;
+    public float TimeLast = 90;
 
     void OnEnable() {
         Debug.Log("Timer started");
